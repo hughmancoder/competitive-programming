@@ -1,11 +1,13 @@
 
-#include "SumOfPower/SumOfPower.hpp"
+#include "KokoBananas/KokoBananas.hpp"
 #include <iostream>
 using namespace std;
 
 int main() {
   // test program
-  SumOfPower sop;
-  cout << sop.findSum({1, 2, 3, 4, 5, 6, 7, 8, 9, 10}) << endl;
-  cout << sop.findSum({3, 14, 15, 92, 65}) << endl;
+  KokoBananas obj;
+
+  cout << obj.lastHand({5, 8}, 2) << endl;
+  cout << obj.lastHand({5, 8}, 4) << endl;
+  cout << obj.lastHand({4, 9, 4}, 18) << endl;
 }
