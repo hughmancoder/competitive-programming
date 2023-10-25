@@ -1,26 +1,28 @@
-#include <pair>
-#include <priority_queue>
+#include <algorithm>
+#include <iostream>
 #include <vector>
+
+using namespace std;
+
 class KokoBananas {
 public:
   int lastHand(vector<int> hands, int K) {
-    // add pair to prioirty queue
-    // todo: add index as second decider for pq sorting
-    for (int i = 0; i < hands.size(); i++) {
-      pq.insert(make_pair(hands[i], i));
-    }
+    int N = hands.size();
+    int lastHandEaten = -1;
+
     while (K > 0) {
-      int hand = pq.top().first;
-      int index = pq.top().second;
-      pq.pop();
-      int nextHand = pq.top().first;
-      while (hand < nextHand && K > 0) {
-        hand--;
-        K--;
+      int maxBananas = -1;
+      for (int i = 0; i < N; ++i) {
+        if (hands[i] > maxBananas) {
+          maxBananas = hands[i];
+          lastHandEaten = i;
+        }
       }
-      if (hand > 0) {
-        pq.insert(make_pair(hand, index));
-      }
+
+      hands[lastHandEaten]--;
+      K--;
     }
-    return index;
-  };
+
+    return lastHandEaten;
+  }
+};
