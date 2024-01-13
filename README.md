@@ -1,3 +1,4 @@
 # competitive-programming
 
-Problems from topcoder
+Problems from Topcoder
+Solutions by Hugh Signoriello
